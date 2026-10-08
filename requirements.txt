@@ -1,0 +1,2 @@
+# Python >=3.12; Phase 1/2 scripts use only the standard library.
+# Matrix-solver dependencies will be pinned when Phase 4 is implemented.

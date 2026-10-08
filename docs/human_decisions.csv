@@ -1,0 +1,7 @@
+decision_id,date,actor,decision,status
+D001,2026-10-08,user,Restart using classroom instructions and authoritative BC1 BOM,confirmed
+D002,2026-10-08,user,GWP100 per packaged kettle is principal indicator,confirmed
+D003,2026-10-08,user,Explore both TianGong and USLCI; no ecoinvent default,confirmed
+D004,2026-10-08,user,Ask for scientific decisions when alternatives materially change results,confirmed
+D005,2026-10-08,assistant,Retain existing work in archive and restart on classroom-restart branch,implemented
+D006,2026-10-08,assistant,Use supplied classroom BOM provisionally while original download is blocked,provisional

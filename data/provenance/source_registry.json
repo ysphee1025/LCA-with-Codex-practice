@@ -1,0 +1,22 @@
+{
+  "sources": [
+    {
+      "id": "classroom-bom",
+      "provided_file": "data/input/classroom_bom_supplied.csv",
+      "sha256": "89b76fbf59a6ab1f3c5825cc6052556b15e1d3e8ea7739121ccb656d00b68f13",
+      "original_url": "https://tiangong-lca-decision-lab.ecodino73.chatgpt.site/classroom/kettle-bom.csv",
+      "access_date": "2026-10-08",
+      "source_type": "user-provided published assignment data",
+      "publication": "Assignment screenshot cites EU Electric Kettles preparatory study (2020), Task 4, Tables 4-3, 4-4, 4-8",
+      "original_download_verified": false,
+      "geography": "unspecified",
+      "reference_year": 2020,
+      "applicability": "finished material masses; no component-level allocation or manufacturing energy",
+      "limitations": [
+        "Primary study not independently retrieved",
+        "Nylon grade unspecified",
+        "No manufacturing losses or assembly electricity"
+      ]
+    }
+  ]
+}

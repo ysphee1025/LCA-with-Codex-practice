@@ -1,9 +1,0 @@
-item,status,decision
-Nylon grade,unresolved,Compare PA6 and PA66 after dataset retrieval
-Manufacturing geography,unresolved,Select based on assignment evidence
-Manufacturing yield,unresolved,Do not assume finished mass equals gross feedstock
-Component manufacture,unresolved,Inspect included processes before adding conversion
-Assembly electricity,unresolved,Find sourced estimate and sensitivity range
-Inbound transport,unresolved,Document inclusion and distances
-Production waste,unresolved,Document treatment and recycling allocation
-LCIA method,unresolved,Choose one compatible method and version

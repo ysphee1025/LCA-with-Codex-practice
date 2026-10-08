@@ -1,0 +1,25 @@
+bom_item_id,material,database,status
+BOM-01,Stainless steel,TianGong,pending
+BOM-01,Stainless steel,USLCI,pending
+BOM-02,Brass,TianGong,pending
+BOM-02,Brass,USLCI,pending
+BOM-03,Copper,TianGong,pending
+BOM-03,Copper,USLCI,pending
+BOM-04,Polypropylene (PP),TianGong,pending
+BOM-04,Polypropylene (PP),USLCI,pending
+BOM-05,Polyvinyl chloride (PVC),TianGong,pending
+BOM-05,Polyvinyl chloride (PVC),USLCI,pending
+BOM-06,"Nylon, grade unspecified",TianGong,pending
+BOM-06,"Nylon, grade unspecified",USLCI,pending
+BOM-07,Polyoxymethylene (POM),TianGong,pending
+BOM-07,Polyoxymethylene (POM),USLCI,pending
+BOM-08,Polycarbonate (PC),TianGong,pending
+BOM-08,Polycarbonate (PC),USLCI,pending
+BOM-09,Acrylonitrile-butadiene-styrene (ABS),TianGong,pending
+BOM-09,Acrylonitrile-butadiene-styrene (ABS),USLCI,pending
+BOM-10,Silicone,TianGong,pending
+BOM-10,Silicone,USLCI,pending
+BOM-11,LDPE packaging foil,TianGong,pending
+BOM-11,LDPE packaging foil,USLCI,pending
+BOM-12,Cardboard packaging,TianGong,pending
+BOM-12,Cardboard packaging,USLCI,pending

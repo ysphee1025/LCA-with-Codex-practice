@@ -1,0 +1,11 @@
+{
+  "result_type": "inventory validation, not LCIA",
+  "rows": 12,
+  "mass_g": {
+    "Kettle": 723.0,
+    "Packaging": 137.8,
+    "Total": 860.8
+  },
+  "source": "user-supplied classroom CSV",
+  "original_download_verified": false
+}

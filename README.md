@@ -1,39 +1,33 @@
-# BC1 electric kettle cradle-to-gate LCA
+# BC1 1 L Electric Kettle — Independent Cradle-to-Gate LCA
 
-## Status
-Work in progress: BOM validation and a tested material-only LCIA calculation scaffold are implemented. **No environmental impact results have been calculated.** TianGong process search requires an authenticated session. Dataset selection, supplier-chain closure, component manufacture, assembly, and full LCIA remain outstanding. This repository is not yet a completed LCA submission.
+**Status: Phase 1/2 scaffold. No baseline, numerical GWP100, contribution, sensitivity or environmental-impact figures have been calculated.**
 
-## Goal and scope
-Declared unit: **one packaged 1 L electric kettle (BC1 simple plastic kettle), at the factory gate**. BC1 represents a base case, not a named commercial product.
+This restarted project follows the classroom instructions in [docs/codex_prompt.md](docs/codex_prompt.md). Existing earlier work is preserved in Git history and an external local archive; the former material-factor calculator is not the chosen new architecture.
 
-Include material production, component manufacture, assembly and packaging. Account for inbound transport and production waste explicitly where relevant. Exclude customer delivery, use and end of life, including disposal of packaging by the customer. The gate is after packaging at the manufacturing factory, not at the resin supplier.
+## 1. Model and run identification
+Product: BC1 simple plastic kettle, a representative base case. This branch is `classroom-restart`. Access probes use unique UTC run IDs under `data/provenance/`; these are not LCA result runs. No baseline commit exists yet. The exact ten website README requirements could not be retrieved; these ten sections are provisional.
 
-Before calculation, PP is a predicted contributor because it has the largest mass; stainless steel is another candidate. This is a hypothesis, not a measured finding.
+## 2. Goal, functional unit and system boundary
+Functional unit as assigned: **one packaged nominal 1 L electric kettle, ready to leave the manufacturing facility**. Include raw materials, component manufacture, assembly and packaging. Resolve upstream energy, transport and production losses/waste. Exclude customer delivery, consumer use/boiling electricity and end of life. Final gate is after kettle assembly and packaging, not an upstream material supplier gate.
 
-## Inventory and provenance
-`data/bom.csv` transcribes the assignment BOM supplied by the student. Source cited by the assignment: EU Electric Kettles preparatory study (2020), Task 4, Tables 4-3, 4-4 and 4-8, printed pp. 26, 27 and 30. The primary report has not yet been independently checked.
+## 3. Foreground inventory and sources
+Authoritative assignment totals: product 723.00 g, packaging 137.80 g, total 860.80 g. `data/input/classroom_bom_supplied.csv` retains the classroom BOM supplied by the student; it is not a newly estimated product BOM. The requested original URL is tested by the retrieval script. A successful downloaded CSV is retained separately and validated before adoption. `data/processed/bom_si.csv` converts grams to kg. Finished masses do not establish gross manufacturing inputs or component allocation. Sources and file hashes are in `data/provenance/source_registry.json`.
 
-- Kettle: 723.00 g
-- Packaging: 137.80 g
-- Total: 860.80 g
+## 4. Database exploration and matching
+Required: TianGong and USLCI/Federal LCA Commons. Neither background database version is selected. TianGong CLI 0.1.27 is installed; process search requires authorized OAuth login. The exact USLCI dataset portal is probed. No datasets, UUIDs or providers have been selected or invented. All 24 material/database searches are tracked as pending in `data/mapping/search_plan.csv`. Candidate decisions will be appended to `candidate_history.csv`, not replaced. Inspect reference units, geography/year, scope, energy inclusion, allocation and upstream suppliers before choosing providers. No ecoinvent or generic factors are used.
 
-These are finished masses, not gross production inputs. Do not silently assume zero processing loss. Nylon grade and factory assembly electricity are unspecified. `data/assumptions.csv` separates unresolved choices from supplied facts.
+## 5. Calculation method and scientific review
+Planned process-based Python calculation: **A s = f; g = B s; h = C g**, including normalization to reference production quantities and explicit supplier links. It is not implemented yet. GWP100 method edition and factor version remain unresolved. Phase 4 must diagnose supplier gaps, flow mismatches and uncharacterized flows before complete cradle-to-gate claims. Details: [methodology](docs/phase1-methodology.md).
 
-## Run locally
-Python 3.12 or later; the current Python tools use only the standard library.
+## 6. Environment and installation
+Verified Python 3.12.14, Node 24.19.0, TianGong CLI 0.1.27. Current Python scripts require no third-party packages. From the checkout:
 
 ```sh
-python3 src/lca.py inventory --output results/inventory_summary.json
 python3 -m unittest discover -s tests -v
-python3 src/lca.py materials
+python3 src/access.py
 ```
 
-The last command intentionally exits with an error until reviewed factors are supplied. It computes **material-only** impacts and cannot establish the full packaged-kettle footprint. It accepts aggregate cradle-to-material-gate LCIA factors per kg, not raw exchanges from an unlinked unit process. Negative factors are permitted for documented credits; nonfinite values, missing materials, mixed methods, duplicate factors and incompatible boundaries are rejected.
-
-## TianGong search
-Official CLI: https://github.com/tiangong-lca/cli
-
-The current environment uses Node 24.19.0 and published CLI 0.1.27. Install outside the project to keep tool dependencies separate:
+Cloud CLI installation and writable session configuration:
 
 ```sh
 npm --cache /tmp/lca-npm-cache install --prefix /workspace/lca-tools --no-audit --no-fund --save-exact @tiangong-lca/cli@0.1.27
@@ -42,33 +36,22 @@ export XDG_CONFIG_HOME=/workspace/lca-tools/config
 /workspace/lca-tools/node_modules/.bin/tiangong-lca auth status --json
 ```
 
-In a trusted terminal on your own machine, install the same CLI and follow its official `auth login` flow. Browser loopback login on a local computer does not automatically authenticate this cloud machine. Never commit sessions, tokens, `.env` files, or put credentials in chat. If cloud login is unavailable, perform searches locally and provide non-secret dataset exports and source metadata, subject to licensing.
+Use the official CLI's browser authorization in a trusted terminal. A login on a local computer does not authenticate this cloud machine automatically. Never send passwords/tokens in chat or commit sessions. Authorized non-secret exports can be supplied after checking redistribution rights. `src/access.py --cli PATH` supports an installed CLI elsewhere.
 
-After authentication, from this checkout:
+## 7. Reproducibility and data rights
+The public repository reproduces BOM/mass/unit checks and read-only access probes only. Background datasets, factors and LCA results are absent. Each probe preserves its own report; downloaded original BOM and search outputs are saved per access run. Raw datasets/search responses must be reviewed for licensing and secrets before publication. Existing provider mappings must not be confused with completed database exploration.
 
-```sh
-/workspace/lca-tools/node_modules/.bin/tiangong-lca search process --input search_requests/04.json --json
-```
+## 8. Actual results and completeness
+Only inventory validation results exist in `results/inventory_checks.json`. There is no total GWP, hotspot/top-three ranking, contribution analysis, baseline, revised result or LCIA figure. Absence is not zero impact. The principal blockers are authenticated data acquisition, full upstream linking, manufacturing foreground data and compatible characterization factors.
 
-The 12 request files are search starting points, not matches. Search **both TianGong and USLCI** for each relevant input. Verify the installed CLI's supported source filter and source identifiers before filtering; do not assume USLCI is covered by an unfiltered search. Record rejected candidates as well as chosen matches.
+## 9. Uncertainty and revised model
+Unspecified nylon grade, production losses, assembly electricity, manufacturing location and transport remain unresolved. No arbitrary numeric ranges or confidence intervals are reported. After a verified independent baseline, select one meaningful alternative with the student, record expected direction before recalculation and retain baseline/revision inputs, outputs and full Git SHAs.
 
-For each selected dataset record ID, version, database, geography, reference flow/unit, boundary, allocation/recycled content, included conversion processes, upstream suppliers, license, and selection rationale. Use `data/dataset_mapping.csv` as the initial mapping register. Check silicone rubber versus silicon, nylon PA6 versus PA66, stainless alloy grade and cardboard type.
+## 10. Human decisions and references
+Human decisions: [decision log](docs/human_decisions.csv). Scientifically material provider/boundary alternatives require human input once real candidates are available.
 
-## Completing LCIA
-1. Verify available data exports, upstream supplier closure and elementary-flow identities on a PP pilot.
-2. Select and freeze one compatible LCIA method/version. Apply it consistently to TianGong and USLCI inventory; never combine incompatible precomputed methods.
-3. Obtain material impacts through a linked supply-chain solver or verified aggregated LCI/LCIA. Individual unit-process direct emissions alone omit upstream burdens.
-4. Add component conversion, assembly electricity, packaging conversion, inbound transport and production-waste treatment with documented quantities and units. Inspect dataset scope first to avoid double counting.
-5. Extend the calculation to those foreground activities and validate full cradle-to-gate totals and category-specific contributions.
-6. Compare one changed choice, preferably PA6 versus PA66 if both are available; keep all other settings and the declared unit constant.
-7. Write category results, hotspots, limitations and scenario differences here. Document exclusions and data gaps explicitly; missing data is not zero impact.
-
-The empty `data/impact_factors.csv` defines the input schema for the material-only calculator. Do not fill it with guessed environmental coefficients. Raw database exports are ignored until their redistribution license is checked. Public reproducibility must include permitted data or precise retrieval instructions, pinned dataset versions, method and required access.
-
-## Current checks
-Seven unit tests passed in the cloud environment, covering assignment mass, kg conversion, absent data, missing coverage, inconsistent methods, duplicate/nonfinite factors and incompatible boundaries. Inventory results are in `results/inventory_summary.json`. These checks validate the scaffold, not LCA results.
-
-## References
-- Assignment: https://tiangong-lca-decision-lab.ecodino73.chatgpt.site/#resources (cloud access blocked; supplied screenshots/BOM used).
-- CLI documentation: https://github.com/tiangong-lca/cli
-- TianGong repositories: https://github.com/orgs/tiangong-lca/repositories
+- Classroom: https://tiangong-lca-decision-lab.ecodino73.chatgpt.site/
+- Original BOM: https://tiangong-lca-decision-lab.ecodino73.chatgpt.site/classroom/kettle-bom.csv
+- Official CLI: https://github.com/tiangong-lca/cli
+- USLCI portal: https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets
+- Assignment screenshot cites EU Electric Kettles preparatory study (2020), Task 4, Tables 4-3, 4-4 and 4-8; primary report not yet independently verified.

@@ -1,0 +1,37 @@
+{
+  "run_id": "20261008T060302796170Z",
+  "urls": {
+    "assignment": {
+      "url": "https://tiangong-lca-decision-lab.ecodino73.chatgpt.site/",
+      "status": "network-or-proxy-error"
+    },
+    "original_bom": {
+      "url": "https://tiangong-lca-decision-lab.ecodino73.chatgpt.site/classroom/kettle-bom.csv",
+      "status": "network-or-proxy-error"
+    },
+    "uslci": {
+      "url": "https://www.lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/datasets",
+      "status": "network-or-proxy-error"
+    }
+  },
+  "database_access_confirmed": false,
+  "environment": {
+    "python3": "Python 3.12.14",
+    "node": "v24.19.0",
+    "tiangong_cli": "0.1.27"
+  },
+  "credentials": {},
+  "baseline_status": "not calculated",
+  "tiangong_auth": {
+    "schemaVersion": "tiangong.cli-auth-status.v1",
+    "status": "login-required",
+    "authMethod": "oauth",
+    "sessionState": "missing",
+    "sessionCache": "private-file",
+    "expiresAt": null,
+    "grantedScopes": [],
+    "onlineVerified": false
+  },
+  "tiangong_search_exit_code": 1,
+  "tiangong_search_error_code": "SUPABASE_OAUTH_LOGIN_REQUIRED"
+}

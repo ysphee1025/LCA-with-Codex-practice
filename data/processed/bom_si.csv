@@ -1,0 +1,13 @@
+item_id,material,quantity,unit,scope,source_id,quantity_kind
+BOM-01,Stainless steel,0.186,kg,Kettle,classroom-bom,finished_mass
+BOM-02,Brass,0.02025,kg,Kettle,classroom-bom,finished_mass
+BOM-03,Copper,0.015,kg,Kettle,classroom-bom,finished_mass
+BOM-04,Polypropylene (PP),0.35025,kg,Kettle,classroom-bom,finished_mass
+BOM-05,Polyvinyl chloride (PVC),0.0435,kg,Kettle,classroom-bom,finished_mass
+BOM-06,"Nylon, grade unspecified",0.0495,kg,Kettle,classroom-bom,finished_mass
+BOM-07,Polyoxymethylene (POM),0.00975,kg,Kettle,classroom-bom,finished_mass
+BOM-08,Polycarbonate (PC),0.00675,kg,Kettle,classroom-bom,finished_mass
+BOM-09,Acrylonitrile-butadiene-styrene (ABS),0.03,kg,Kettle,classroom-bom,finished_mass
+BOM-10,Silicone,0.012,kg,Kettle,classroom-bom,finished_mass
+BOM-11,LDPE packaging foil,0.0063,kg,Packaging,classroom-bom,finished_mass
+BOM-12,Cardboard packaging,0.1315,kg,Packaging,classroom-bom,finished_mass

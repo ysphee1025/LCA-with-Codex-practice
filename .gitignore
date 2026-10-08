@@ -4,5 +4,8 @@ __pycache__/
 node_modules/
 .env
 .env.*
-!.env.example
 data/raw/
+# Access reports are safe status metadata; payload publication requires review.
+data/provenance/*/process-search.json
+data/provenance/*/downloaded-bom.csv
+data/provenance/*/downloaded-bom-si.csv
