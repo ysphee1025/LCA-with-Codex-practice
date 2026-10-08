@@ -32,7 +32,7 @@ def load_bom(path):
 
 def write_si(rows, destination):
     with Path(destination).open('w',newline='',encoding='utf-8') as f:
-        w=csv.writer(f)
+        w=csv.writer(f,lineterminator="\n")
         w.writerow(['item_id','material','quantity','unit','scope','source_id','quantity_kind'])
         for i,r in enumerate(rows,1):
             w.writerow([f'BOM-{i:02d}',r['material'],float(r['finished_mass_g'])/1000,
